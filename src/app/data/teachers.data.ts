@@ -17,7 +17,7 @@ export interface Teacher {
   email: string;
   position: Position;
   subjectId: number[];
-  subjects: Subject[];
+  subjects?: string;
   deleted: boolean;
 }
 
@@ -30,7 +30,6 @@ export class TeacherTable {
       email: 'tanar@gmail.com',
       position: Position.ASSISTANT_PROFESSOR,
       subjectId: [1, 2],
-      subjects: [],
       deleted: false,
     },
     {
@@ -40,7 +39,6 @@ export class TeacherTable {
       email: 'prof@gmail.com',
       position: Position.ASSOCIATE_PROFESSOR,
       subjectId: [1],
-      subjects: [],
       deleted: false,
     },
     {
@@ -50,7 +48,6 @@ export class TeacherTable {
       email: 'exp@gmail.com',
       position: Position.ACTING_EXPERT,
       subjectId: [2, 3],
-      subjects: [],
       deleted: false,
     },
   ];
@@ -59,7 +56,7 @@ export class TeacherTable {
       const subject = SubjectTable._subjects.find(
         (a) => a.id === teacher.subjectId[x]
       );
-      if (subject != undefined) teacher.subjects.push(subject);
+      if (subject != undefined) teacher.subjects += (subject + ";"));
     });
     return teacher;
   });

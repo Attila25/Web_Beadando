@@ -15,11 +15,14 @@ import { Component, Input } from '@angular/core';
           <li><a mat-button routerLink="/authors">
             <b>Authors</b>
           </a></li>
+          <li><a mat-button routerLink="/teachers">
+            <b>Teachers</b>
+          </a></li>
       </ul>
     </nav>
   </mat-card>`,
-  styles: [`h1 { font-family: Lato; }`]
+  styles: [`h1 { font-family: Lato; }`],
 })
-export class HelloComponent  {
+export class HelloComponent {
   @Input() name: string;
 }

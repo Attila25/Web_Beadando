@@ -7,7 +7,7 @@ export class TeacherModel implements Teacher {
   name: string;
   email: string;
   position: Position;
-  //subjectId!: number[];
-  //subjects!: Subject[];
+  subjectId!: number[];
+  subjects!: Subject[];
   deleted: boolean;
 }

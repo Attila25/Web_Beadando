@@ -1,4 +1,4 @@
-import { Subject } from './subjects.data';
+/*import { Subject } from './subjects.data';
 import { SubjectTable } from './subjects.data';
 
 enum Course {
@@ -62,4 +62,4 @@ export class StudentTable {
     });
     return student;
   });
-}
+}*/

@@ -16,21 +16,21 @@ export interface Teacher {
   name: string;
   email: string;
   position: Position;
-  //subjectId: number[];
-  //subjects: Subject[];
+  subjectId: number[];
+  subjects: Subject[];
   deleted: boolean;
 }
 
 export class TeacherTable {
-  public static teachers: Teacher[] = [
+  public static _teachers: Teacher[] = [
     {
       id: 1,
       neptun: 'AAA111',
       name: 'Nagy László',
       email: 'tanar@gmail.com',
       position: Position.ASSISTANT_PROFESSOR,
-      //subjectId: [1, 2],
-      //subjects: [],
+      subjectId: [1, 2],
+      subjects: [],
       deleted: false,
     },
     {
@@ -39,8 +39,8 @@ export class TeacherTable {
       name: 'Kiss József',
       email: 'prof@gmail.com',
       position: Position.ASSOCIATE_PROFESSOR,
-      //subjectId: [1],
-      //subjects: [],
+      subjectId: [1],
+      subjects: [],
       deleted: false,
     },
     {
@@ -49,12 +49,12 @@ export class TeacherTable {
       name: 'Papp Károly',
       email: 'exp@gmail.com',
       position: Position.ACTING_EXPERT,
-      //subjectId: [2, 3],
-      //subjects: [],
+      subjectId: [2, 3],
+      subjects: [],
       deleted: false,
     },
   ];
-  /*public static teachers: Teacher[] = TeacherTable._teachers.map((teacher) => {
+  public static teachers: Teacher[] = TeacherTable._teachers.map((teacher) => {
     teacher.subjectId.forEach((x) => {
       const subject = SubjectTable._subjects.find(
         (a) => a.id === teacher.subjectId[x]
@@ -62,5 +62,5 @@ export class TeacherTable {
       if (subject != undefined) teacher.subjects.push(subject);
     });
     return teacher;
-  });*/
+  });
 }

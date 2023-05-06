@@ -16,7 +16,7 @@ export interface Student {
   email: string;
   course: Course;
   subjectId: number[];
-  subjects: Subject[];
+  subjects?: Subject[];
   deleted: boolean;
 }
 

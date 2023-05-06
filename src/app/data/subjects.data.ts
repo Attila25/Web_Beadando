@@ -9,11 +9,11 @@ export interface Subject {
   credit: number;
   department: string;
   studentId: number[];
-  students: Student[];
+  students?: Student[];
   teacherId: number[];
-  teachers: Teacher[];
+  teachers?: Teacher[];
   semesterId: number[];
-  semesters: Semester[];
+  semesters?: Semester[];
   deleted: boolean;
 }
 

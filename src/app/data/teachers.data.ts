@@ -56,7 +56,7 @@ export class TeacherTable {
       const subject = SubjectTable._subjects.find(
         (a) => a.id === teacher.subjectId[x]
       );
-      if (subject != undefined) teacher.subjects += (subject + ";"));
+      if (subject != undefined) teacher.subjects = subject.name;
     });
     return teacher;
   });

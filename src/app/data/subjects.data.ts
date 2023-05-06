@@ -63,7 +63,7 @@ export class SubjectTable {
     },
   ];
 
-  /*public static subjects: Subject[] = SubjectTable._subjects.map((subject) => {
+  public static subjects: Subject[] = SubjectTable._subjects.map((subject) => {
     subject.teacherId.forEach((x) => {
       const teacher = TeacherTable._teachers.find(
         (a) => a.id === subject.teacherId[x]
@@ -86,5 +86,5 @@ export class SubjectTable {
     });
 
     return subject;
-  });*/
+  });
 }

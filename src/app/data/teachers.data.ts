@@ -17,7 +17,7 @@ export interface Teacher {
   email: string;
   position: Position;
   subjectId: number[];
-  subjects?: string;
+  subjects?: Subject[];
   deleted: boolean;
 }
 
@@ -56,7 +56,7 @@ export class TeacherTable {
       const subject = SubjectTable._subjects.find(
         (a) => a.id === teacher.subjectId[x]
       );
-      if (subject != undefined) teacher.subjects = subject.name;
+      if (subject != undefined) teacher.subjects.push(subject);
     });
     return teacher;
   });

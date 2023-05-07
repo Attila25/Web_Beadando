@@ -39,7 +39,7 @@ export class TeacherTable {
       name: 'Kiss József',
       email: 'prof@gmail.com',
       position: Position.ASSOCIATE_PROFESSOR,
-      subjectId: [1],
+      subjectId: [2, 1],
       subjects_t: [],
       deleted: false,
     },
@@ -49,7 +49,7 @@ export class TeacherTable {
       name: 'Papp Károly',
       email: 'exp@gmail.com',
       position: Position.ACTING_EXPERT,
-      subjectId: [2, 3],
+      subjectId: [1, 3],
       subjects_t: [],
       deleted: false,
     },
@@ -57,7 +57,7 @@ export class TeacherTable {
   public static teachers: Teacher[] = TeacherTable._teachers.map((teacher) => {
     teacher.subjectId.forEach((x) => {
       const subject = SubjectTable._subjects.find(
-        (a) => a.id === teacher.subjectId[x]
+        (a) => a.id === teacher.subjectId[x - 1]
       );
       if (subject != undefined) teacher.subjects_t.push(subject.name);
     });

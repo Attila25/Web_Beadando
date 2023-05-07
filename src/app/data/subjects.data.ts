@@ -50,7 +50,7 @@ export class SubjectTable {
   public static subjects: Subject[] = SubjectTable._subjects.map((subject) => {
     subject.semesterId.forEach((x) => {
       const semester = SemesterTable._semester.find(
-        (a) => a.id === subject.semesterId[x]
+        (a) => a.id === subject.semesterId[x - 1]
       );
       if (semester != undefined) subject.semesters_s.push(semester);
     });

@@ -21,5 +21,5 @@ export const teacherCreateAction = createAction(
 );
 export const teacherCreatedAction = createAction(
   TeacherActionTypes.teacherCreated,
-  props<{ subject: TeacherModel }>()
+  props<{ teacher: TeacherModel }>()
 );

@@ -8,6 +8,6 @@ export class TeacherModel implements Teacher {
   email: string;
   position: Position;
   subjectId!: number[];
-  subjects!: Subject[];
+  subjects_t!: Subject[];
   deleted: boolean;
 }

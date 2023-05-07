@@ -18,7 +18,7 @@ export class TeachersService {
         'Content-Type': 'application/json',
       }),
     };
-    return this.requestService.get<Teacher[]>(TEACHER_URL, httpOptions);
+    return this.requestService.get<TeacherModel[]>(TEACHER_URL, httpOptions);
   }
 
   createTeacher(teacher: TeacherModel): Observable<any> {

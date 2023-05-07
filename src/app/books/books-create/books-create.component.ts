@@ -27,7 +27,7 @@ export class BooksCreateComponent implements OnInit {
     this.booksForm = this.formBuilder.group({
       'title': ['', [Validators.required, Validators.maxLength(50)]]
     });
-    //this.authors$.subscribe(a => console.log('AUTHORS', a));
+    this.authors$.subscribe(a => console.log('AUTHORS', a));
   }
 
   onSubmit(bookData: any) {

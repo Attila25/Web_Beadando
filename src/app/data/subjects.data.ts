@@ -9,11 +9,11 @@ export interface Subject {
   credit: number;
   department: string;
   studentId: number[];
-  students?: Student[];
+  students_s: Student[];
   teacherId: number[];
-  teachers?: Teacher[];
+  teachers_s: Teacher[];
   semesterId: number[];
-  semesters?: Semester[];
+  semesters_s: Semester[];
   deleted: boolean;
 }
 
@@ -26,11 +26,11 @@ export class SubjectTable {
       credit: 3,
       department: 'Mathematics',
       studentId: [1, 3],
-      students: [],
+      students_s: [],
       teacherId: [3],
-      teachers: [],
+      teachers_s: [],
       semesterId: [1],
-      semesters: [],
+      semesters_s: [],
       deleted: false,
     },
     {
@@ -40,11 +40,11 @@ export class SubjectTable {
       credit: 5,
       department: 'RSZT',
       studentId: [2],
-      students: [],
+      students_s: [],
       teacherId: [1, 3],
-      teachers: [],
+      teachers_s: [],
       semesterId: [2],
-      semesters: [],
+      semesters_s: [],
       deleted: false,
     },
     {
@@ -54,37 +54,40 @@ export class SubjectTable {
       credit: 4,
       department: 'VIRT',
       studentId: [3],
-      students: [],
+      students_s: [],
       teacherId: [2],
-      teachers: [],
+      teachers_s: [],
       semesterId: [1, 3],
-      semesters: [],
+      semesters_s: [],
       deleted: false,
     },
   ];
 
-  /*public static subjects: Subject[] = SubjectTable._subjects.map((subject) => {
+  public static subjects: Subject[] = SubjectTable._subjects.map((subject) => {
     subject.teacherId.forEach((x) => {
-      const teacher = TeacherTable._teachers.find(
-        (a) => a.id === subject.teacherId[x]
-      );
-      if (teacher != undefined) subject.teachers.push(teacher);
+      if (TeacherTable != undefined) {
+        const teacher = TeacherTable._teachers.find(
+          (a) => a.id === subject.teacherId[x]
+        );
+        if (teacher != undefined) subject.teachers_s.push(teacher);
+      }
     });
-
     subject.studentId.forEach((x) => {
-      const student = StudentTable._students.find(
-        (a) => a.id === subject.studentId[x]
-      );
-      if (student != undefined) subject.students.push(student);
+      if (StudentTable != undefined) {
+        const student = StudentTable._students.find(
+          (a) => a.id === subject.studentId[x]
+        );
+        if (student != undefined) subject.students_s.push(student);
+      }
     });
 
     subject.semesterId.forEach((x) => {
       const semester = SemesterTable._semester.find(
         (a) => a.id === subject.semesterId[x]
       );
-      if (semester != undefined) subject.semesters.push(semester);
+      if (semester != undefined) subject.semesters_s.push(semester);
     });
 
     return subject;
-  });*/
+  });
 }

@@ -17,7 +17,7 @@ export interface Teacher {
   email: string;
   position: Position;
   subjectId: number[];
-  subjects_t: Subject[];
+  subjects_t: string[];
   deleted: boolean;
 }
 
@@ -56,12 +56,10 @@ export class TeacherTable {
   ];
   public static teachers: Teacher[] = TeacherTable._teachers.map((teacher) => {
     teacher.subjectId.forEach((x) => {
-      if (SubjectTable != undefined) {
-        const subject = SubjectTable._subjects.find(
-          (a) => a.id === teacher.subjectId[x]
-        );
-        if (subject != undefined) teacher.subjects_t.push(subject);
-      }
+      const subject = SubjectTable._subjects.find(
+        (a) => a.id === teacher.subjectId[x]
+      );
+      if (subject != undefined) teacher.subjects_t.push(subject.name);
     });
     return teacher;
   });

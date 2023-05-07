@@ -16,7 +16,7 @@ export interface Student {
   email: string;
   course: Course;
   subjectId: number[];
-  subjects_s: Subject[];
+  subjects_s: string[];
   deleted: boolean;
 }
 
@@ -55,12 +55,10 @@ export class StudentTable {
   ];
   public static students: Student[] = StudentTable._students.map((student) => {
     student.subjectId.forEach((x) => {
-      if (SubjectTable != undefined) {
-        const subject = SubjectTable._subjects.find(
-          (a) => a.id === student.subjectId[x]
-        );
-        if (subject != undefined) student.subjects_s.push(subject);
-      }
+      const subject = SubjectTable._subjects.find(
+        (a) => a.id === student.subjectId[x]
+      );
+      if (subject != undefined) student.subjects_s.push(subject.name);
     });
     return student;
   });

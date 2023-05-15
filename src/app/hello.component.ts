@@ -18,6 +18,15 @@ import { Component, Input } from '@angular/core';
           <li><a mat-button routerLink="/teachers">
             <b>Teachers</b>
           </a></li>
+          <li><a mat-button routerLink="/subjects">
+            <b>Subjects</b>
+          </a></li>
+          <li><a mat-button routerLink="/students">
+            <b>Students</b>
+          </a></li>
+          <li><a mat-button routerLink="/semesters">
+            <b>Semesters</b>
+          </a></li>
       </ul>
     </nav>
   </mat-card>`,

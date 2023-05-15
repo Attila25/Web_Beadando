@@ -19,7 +19,6 @@ export class TeachersListComponent implements OnInit {
     'email',
     'position',
     'subjectId',
-    'subjects_t',
   ];
 
   teachers$: Observable<TeacherModel[]> = this.store.pipe(

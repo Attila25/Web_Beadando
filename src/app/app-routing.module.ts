@@ -28,6 +28,24 @@ const routes: Routes = [
     canLoad: [AuthGuard],
   },
   {
+    path: 'subjects',
+    loadChildren: () =>
+      import('./subjects/subjects.module').then((m) => m.SubjectsModule),
+    canLoad: [AuthGuard],
+  },
+  {
+    path: 'students',
+    loadChildren: () =>
+      import('./students/students.module').then((m) => m.StudentsModule),
+    canLoad: [AuthGuard],
+  },
+  {
+    path: 'semesters',
+    loadChildren: () =>
+      import('./semesters/semesters.module').then((m) => m.SemestersModule),
+    canLoad: [AuthGuard],
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',

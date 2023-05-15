@@ -1,7 +1,7 @@
 import { Subject } from './subjects.data';
 import { SubjectTable } from './subjects.data';
 
-enum Course {
+export enum Course {
   COMPUTER_ENGINEER_MSC = 'Computer Engineer Msc',
   COMPUTER_PROGRAMMER_MSC = 'Computer Programmer Msc',
   COMPUTER_ENGINEER_BSC = 'Computer Engineer Bsc',

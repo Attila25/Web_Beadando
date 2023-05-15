@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import {
   TeacherActionTypes,
   teacherCreatedAction,
+  teacherLoadedAction,
   teachersLoadedAction,
 } from './teachers.actions';
 import { TeachersService } from '../teachers.service';
@@ -14,7 +15,7 @@ import { selectNextTeacherId } from './teachers.selectors';
 
 @Injectable()
 export class TeacherEffects {
-  loadAuthors$ = createEffect(() =>
+  loadTeachers$ = createEffect(() =>
     this.actions$.pipe(
       ofType(TeacherActionTypes.teachersRequested),
       mergeMap((action) => {
@@ -23,6 +24,18 @@ export class TeacherEffects {
           catchError(() => EMPTY)
         );
       })
+    )
+  );
+
+  loadTeacher$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TeacherActionTypes.teacherRequested),
+      switchMap((action) =>
+        this.teachersService.getTeacher(action.teacherId).pipe(
+          map((teacher) => teacherLoadedAction({ teacher })),
+          catchError(() => EMPTY)
+        )
+      )
     )
   );
 

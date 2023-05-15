@@ -3,7 +3,10 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { TeachersService } from '../teachers.service';
 import { selectTeachers } from '../store/teachers.selectors';
-import { teachersRequestedAction } from '../store/teachers.actions';
+import {
+  teachersRequestedAction,
+  teacherRequestedAction,
+} from '../store/teachers.actions';
 import { TeacherModel } from '../store/teachers.model';
 
 @Component({
@@ -29,5 +32,6 @@ export class TeachersListComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(teachersRequestedAction());
+    this.store.dispatch(teacherRequestedAction({ teacherId: 1 }));
   }
 }

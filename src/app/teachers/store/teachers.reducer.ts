@@ -1,5 +1,9 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { teacherCreateAction, teachersLoadedAction } from './teachers.actions';
+import {
+  teacherCreateAction,
+  teachersLoadedAction,
+  teacherLoadedAction,
+} from './teachers.actions';
 import { TeacherModel } from './teachers.model';
 
 export const teachersFeatureKey = 'teachersFeature';
@@ -15,5 +19,6 @@ export const initialState: TeachersFeatureState = {
 export const teachersReducer = createReducer(
   initialState,
   on(teachersLoadedAction, (state, { teachers }) => ({ ...state, teachers })),
+  on(teacherLoadedAction, (state, { teacher }) => ({ ...state, teacher })),
   on(teacherCreateAction, (state) => ({ ...state }))
 );

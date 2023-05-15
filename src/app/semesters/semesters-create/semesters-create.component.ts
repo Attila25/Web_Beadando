@@ -30,7 +30,10 @@ export class SemestersCreateComponent implements OnInit {
 
   ngOnInit() {
     this.semestersForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.maxLength(50)]],
+      name: [
+        '',
+        [Validators.required, Validators.minLength(9), Validators.maxLength(9)],
+      ],
       start_date: [2023, [Validators.required]],
       end_date: [2024, [Validators.required]],
     });
@@ -46,27 +49,28 @@ export class SemestersCreateComponent implements OnInit {
   get name() {
     return this.semestersForm.get('name');
   }
-  get startDate() {
-    return this.semestersForm.get('startDate');
+  get start_date() {
+    return this.semestersForm.get('start_date');
   }
-  get endDate() {
-    return this.semestersForm.get('endDate');
+  get end_date() {
+    return this.semestersForm.get('end_date');
   }
 
   getNameErrorMessage() {
     if (this.name.dirty || this.name.touched) {
-      if (this.name.hasError('minlength'))
+      if (this.name.hasError('minLength'))
         return 'You have to enter 9 characters!';
-      if (this.name.hasError('maxlength'))
+      if (this.name.hasError('maxLength'))
         return 'You have to enter 9 characters!';
     }
     return '';
   }
 
   getDescriptionErrorMessage() {
-    if (this.startDate.dirty || this.startDate.touched) {
-      if (this.startDate.hasError('required')) return 'You must enter a value!';
-      if (this.startDate.hasError('maxlength'))
+    if (this.start_date.dirty || this.start_date.touched) {
+      if (this.start_date.hasError('required'))
+        return 'You must enter a value!';
+      if (this.start_date.hasError('maxlength'))
         return 'You can enter at most 100 characters!';
     }
     return '';

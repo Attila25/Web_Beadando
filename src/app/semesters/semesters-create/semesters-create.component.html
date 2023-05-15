@@ -20,10 +20,10 @@
         type="number"
         matInput
         placeholder="Start date"
-        formControlName="startDate"
+        formControlName="start_date"
       />
       <mat-hint>Give the semester a start date</mat-hint>
-      <mat-error *ngIf="startDate.invalid">{{
+      <mat-error *ngIf="start_date.invalid">{{
         getDescriptionErrorMessage()
       }}</mat-error>
     </mat-form-field>
@@ -35,10 +35,10 @@
         type="number"
         matInput
         placeholder="End date"
-        formControlName="endDate"
+        formControlName="end_date"
       />
       <mat-hint>Give the semester a end date</mat-hint>
-      <mat-error *ngIf="endDate.invalid">{{
+      <mat-error *ngIf="end_date.invalid">{{
         getDescriptionErrorMessage()
       }}</mat-error>
     </mat-form-field>

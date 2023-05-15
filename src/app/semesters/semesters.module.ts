@@ -18,6 +18,7 @@ import { SemesterEffects } from './store/semesters.effects';
 import * as fromSemesters from './store/semesters.reducer';
 import { SemestersListComponent } from './semesters-list/semesters-list.component';
 import { SemestersComponent } from './semesters/semesters.component';
+import { SemestersCreateComponent } from './semesters-create/semesters-create.component';
 
 @NgModule({
   imports: [
@@ -38,7 +39,11 @@ import { SemestersComponent } from './semesters/semesters.component';
     ),
     EffectsModule.forFeature([SemesterEffects]),
   ],
-  declarations: [SemestersComponent, SemestersListComponent],
+  declarations: [
+    SemestersComponent,
+    SemestersListComponent,
+    SemestersCreateComponent,
+  ],
   providers: [SemestersService],
 })
 export class SemestersModule {}

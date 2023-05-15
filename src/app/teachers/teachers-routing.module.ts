@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../../app/auth/auth.guard';
 import { TeachersListComponent } from './teachers-list/teachers-list.component';
 import { TeachersComponent } from './teachers/teachers.component';
+import { TeacherSubjectListComponent } from './teachersubject-list/teachersubject-list.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
           {
             path: '',
             component: TeachersListComponent,
+          },
+          {
+            path: '/list',
+            component: TeacherSubjectListComponent,
           },
           /*{
           path: 'details/:eventId',

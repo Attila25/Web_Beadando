@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { TeachersService } from '../teachers.service';
-import { selectTeachers } from '../store/teachers.selectors';
+import { selectLoadedTeacher } from '../store/teachers.selectors';
 import {
   teachersRequestedAction,
   teacherRequestedAction,
@@ -11,10 +11,10 @@ import { TeacherModel } from '../store/teachers.model';
 
 @Component({
   selector: 'app-teachers-list',
-  templateUrl: './teachers-list.component.html',
-  styleUrls: ['./teachers-list.component.css'],
+  templateUrl: './teachersubject-list.component.html',
+  styleUrls: ['./teachersubject-list.component.css'],
 })
-export class TeachersListComponent implements OnInit {
+export class TeacherSubjectListComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
     'neptun',
@@ -24,13 +24,13 @@ export class TeachersListComponent implements OnInit {
     'subjectId',
   ];
 
-  teachers$: Observable<TeacherModel[]> = this.store.pipe(
-    select(selectTeachers)
+  teacher$: Observable<TeacherModel> = this.store.pipe(
+    select(selectLoadedTeacher)
   );
 
   constructor(private teachersService: TeachersService, private store: Store) {}
 
   ngOnInit() {
-    this.store.dispatch(teachersRequestedAction());
+    this.store.dispatch(teacherRequestedAction({ teacherId: 1 }));
   }
 }

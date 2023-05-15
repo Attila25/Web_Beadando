@@ -14,6 +14,12 @@ export const selectTeachers = createSelector(
     return state.teachers;
   }
 );
+export const selectLoadedTeacher = createSelector(
+  selectFeature,
+  (state: TeachersFeatureState) => {
+    return state.loadedTeacher;
+  }
+);
 
 export const selectNextTeacherId = createSelector(
   selectTeachers,

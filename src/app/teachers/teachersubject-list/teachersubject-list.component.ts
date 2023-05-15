@@ -8,29 +8,36 @@ import {
   teacherRequestedAction,
 } from '../store/teachers.actions';
 import { TeacherModel } from '../store/teachers.model';
+import { ActivatedRoute } from '@angular/router';
+import {
+  switchMap,
+  catchError,
+  map,
+  startWith,
+  debounceTime,
+  retry,
+  tap,
+} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-teachers-list',
+  selector: 'app-teachersubject-list',
   templateUrl: './teachersubject-list.component.html',
   styleUrls: ['./teachersubject-list.component.css'],
 })
 export class TeacherSubjectListComponent implements OnInit {
-  displayedColumns: string[] = [
-    'id',
-    'neptun',
-    'name',
-    'email',
-    'position',
-    'subjectId',
-  ];
+  teachers = [];
+  teacher: any = {};
 
-  teacher$: Observable<TeacherModel> = this.store.pipe(
-    select(selectLoadedTeacher)
-  );
-
-  constructor(private teachersService: TeachersService, private store: Store) {}
+  constructor(
+    private route: ActivatedRoute,
+    private teachersService: TeachersService
+  ) {}
 
   ngOnInit() {
-    this.store.dispatch(teacherRequestedAction({ teacherId: 1 }));
+    this.route.paramMap
+      .pipe(switchMap((params) => this.teachersService.getTeacher(0)))
+      .subscribe((teacher) => {
+        this.teacher = teacher;
+      });
   }
 }

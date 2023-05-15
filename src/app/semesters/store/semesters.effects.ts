@@ -31,18 +31,14 @@ export class SemesterEffects {
       ofType(SemesterActionTypes.semesterCreate),
       concatLatestFrom((action) => this.store.select(selectNextSemesterId)),
       switchMap(([action, id]) => {
-        console.log(action, id);
         return this.semestersService.createSemester(action).pipe(
           map((item: any) => {
             return semesterCreatedAction({
               semester: {
-                id: action.id,
-                neptun: action.neptun,
+                id,
                 name: action.name,
-                email: action.email,
-                position: action.position,
-                subjectId: action.subjectId,
-                subjects: [],
+                start_date: action.start_date,
+                end_date: action.end_date,
                 deleted: false,
               },
             });

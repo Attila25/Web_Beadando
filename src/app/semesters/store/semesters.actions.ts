@@ -1,25 +1,25 @@
 import { createAction, props } from '@ngrx/store';
-import { SemesterModel } from './teachers.model';
+import { SemesterModel } from './semesters.model';
 
 export enum SemesterActionTypes {
-  teachersRequested = '[Semesters] Semesters Requested',
-  teachersLoaded = '[Semesters] Semesters Loaded',
-  teacherCreate = '[Semesters] Semester Create',
-  teacherCreated = '[Semesters] Semester Created',
+  semestersRequested = '[Semesters] Semesters Requested',
+  semestersLoaded = '[Semesters] Semesters Loaded',
+  semesterCreate = '[Semesters] Semester Create',
+  semesterCreated = '[Semesters] Semester Created',
 }
 
-export const teachersRequestedAction = createAction(
-  SemesterActionTypes.teachersRequested
+export const semestersRequestedAction = createAction(
+  SemesterActionTypes.semestersRequested
 );
-export const teachersLoadedAction = createAction(
-  SemesterActionTypes.teachersLoaded,
-  props<{ teachers: SemesterModel[] }>()
+export const semestersLoadedAction = createAction(
+  SemesterActionTypes.semestersLoaded,
+  props<{ semesters: SemesterModel[] }>()
 );
-export const teacherCreateAction = createAction(
-  SemesterActionTypes.teacherCreate,
-  props<{ teacher: SemesterModel }>()
+export const semesterCreateAction = createAction(
+  SemesterActionTypes.semesterCreate,
+  props<{ semester: SemesterModel }>()
 );
-export const teacherCreatedAction = createAction(
-  SemesterActionTypes.teacherCreated,
-  props<{ teacher: SemesterModel }>()
+export const semesterCreatedAction = createAction(
+  SemesterActionTypes.semesterCreated,
+  props<{ semester: SemesterModel }>()
 );

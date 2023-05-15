@@ -1,6 +1,4 @@
 import { Semester, SemesterTable } from './semesters.data';
-import { Student, StudentTable } from './students.data';
-import { Teacher, TeacherTable } from './teachers.data';
 
 export interface Subject {
   id: number;
@@ -49,7 +47,7 @@ export class SubjectTable {
 
   public static subjects: Subject[] = SubjectTable._subjects.map((subject) => {
     subject.semesterId.forEach((x) => {
-      const semester = SemesterTable._semester.find(
+      const semester = SemesterTable.semesters.find(
         (a) => a.id === subject.semesterId[x - 1]
       );
       if (semester != undefined) subject.semesters_s.push(semester);
